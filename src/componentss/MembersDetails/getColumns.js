@@ -1,6 +1,6 @@
 import React from "react";
 import UsernameCell from "./UsernameCell";
-import axios from 'axios';
+import axios from "axios";
 
 const EDIT_SVG = (
   <svg
@@ -55,7 +55,7 @@ const styles = {
     height: "100%",
     display: "flex",
     justifyContent: "flex-end",
-    alignItems: "center"
+    alignItems: "center",
   },
   editButton: {
     background: "#f3f3f3",
@@ -65,7 +65,7 @@ const styles = {
     display: "inline-flex",
     border: "none",
     borderRadius: "50%",
-    boxShadow: "1px 1px 2px 0px rgb(0 0 0 / .3)"
+    boxShadow: "1px 1px 2px 0px rgb(0 0 0 / .3)",
   },
   buttonsCellEditorContainer: {
     height: "100%",
@@ -73,7 +73,7 @@ const styles = {
     display: "inline-flex",
     padding: "0 20px",
     justifyContent: "flex-end",
-    alignItems: "center"
+    alignItems: "center",
   },
   cancelButton: {
     background: "#f3f3f3",
@@ -84,7 +84,7 @@ const styles = {
     display: "inline-flex",
     border: "none",
     borderRadius: "50%",
-    boxShadow: "1px 1px 2px 0px rgb(0 0 0 / .3)"
+    boxShadow: "1px 1px 2px 0px rgb(0 0 0 / .3)",
   },
   saveButton: {
     background: "#f3f3f3",
@@ -94,8 +94,8 @@ const styles = {
     display: "inline-flex",
     border: "none",
     borderRadius: "50%",
-    boxShadow: "1px 1px 2px 0px rgb(0 0 0 / .3)"
-  }
+    boxShadow: "1px 1px 2px 0px rgb(0 0 0 / .3)",
+  },
 };
 
 const getColumns = ({ setRowsData }) => {
@@ -104,7 +104,7 @@ const getColumns = ({ setRowsData }) => {
       id: "checkbox",
       visible: true,
       pinned: true,
-      width: "54px"
+      width: "54px",
     },
     {
       id: "2",
@@ -116,62 +116,62 @@ const getColumns = ({ setRowsData }) => {
     {
       id: "3",
       field: "name",
-      label: "Name"
+      label: "Name",
     },
     {
       id: "4",
       field: "surname",
-      label: "Surname"
+      label: "Surname",
     },
     {
       id: "5",
       field: "email",
-      label: "Email"
+      label: "Email",
     },
     {
       id: "6",
       field: "phone",
-      label: "Phone No."
+      label: "Phone No.",
     },
     {
       id: "7",
       field: "address",
-      label: "Address"
+      label: "Address",
     },
     {
       id: "8",
       field: "postcode",
-      label: "Postcode"
+      label: "Postcode",
     },
     {
       id: "9",
       field: "state",
-      label: "State"
+      label: "State",
     },
     {
       id: "10",
       field: "country",
-      label: "Country"
+      label: "Country",
     },
     {
       id: "11",
       field: "bankaccinfo",
-      label: "Bank Account"
+      label: "Bank Account",
     },
     {
       id: "12",
       field: "memberno",
-      label: "Member No"
+      label: "Member No",
     },
     {
       id: "13",
       field: "payAud",
-      label: "Investment (AUD)"
+      label: "Investment (AUD)",
     },
     {
       id: "14",
       field: "category",
-      label: "Role"
+      label: "Role",
     },
     // {
     //   id: "6",
@@ -210,7 +210,7 @@ const getColumns = ({ setRowsData }) => {
         data,
         column,
         colIndex,
-        rowIndex
+        rowIndex,
       }) => (
         <div style={styles.buttonsCellContainer}>
           <button
@@ -233,7 +233,7 @@ const getColumns = ({ setRowsData }) => {
         column,
         colIndex,
         rowIndex,
-        onChange
+        onChange,
       }) => (
         <div style={styles.buttonsCellEditorContainer}>
           <button
@@ -257,19 +257,60 @@ const getColumns = ({ setRowsData }) => {
               );
               rowsClone[updatedRowIndex] = data;
               setRowsData(rowsClone);
-              const postData= ()=>{
-                const {_id,id,refmno,name,surname,email,phone,address,postcode,state,country,bankaccinfo,memberno,password,payAud,category,date,prefCurrency}=data;
-                var UpdatedMemInfo ={_id,id, refmno,name,surname,email,phone,address,postcode,state,country,bankaccinfo,memberno,password,payAud,category,date,prefCurrency};
-                axios.put('/memberinfoupdateadmin', UpdatedMemInfo)
-                .then( res => {
-                  alert('Updated successfully!');
-                 }   
-                )
-                .catch(err => {
-                  console.log(err.response);
-                  alert('An error occurred! Try submitting the form again.');
-                });
-              } 
+              const postData = () => {
+                const {
+                  _id,
+                  id,
+                  refmno,
+                  name,
+                  surname,
+                  email,
+                  phone,
+                  address,
+                  postcode,
+                  state,
+                  country,
+                  bankaccinfo,
+                  memberno,
+                  password,
+                  payAud,
+                  category,
+                  date,
+                  prefCurrency,
+                } = data;
+                var UpdatedMemInfo = {
+                  _id,
+                  id,
+                  refmno,
+                  name,
+                  surname,
+                  email,
+                  phone,
+                  address,
+                  postcode,
+                  state,
+                  country,
+                  bankaccinfo,
+                  memberno,
+                  password,
+                  payAud,
+                  category,
+                  date,
+                  prefCurrency,
+                };
+                axios
+                  .put(
+                    "https://nashimiumbackend.herokuapp.com/memberinfoupdateadmin",
+                    UpdatedMemInfo
+                  )
+                  .then((res) => {
+                    alert("Updated successfully!");
+                  })
+                  .catch((err) => {
+                    console.log(err.response);
+                    alert("An error occurred! Try submitting the form again.");
+                  });
+              };
               postData();
               console.log(data);
               console.log(data.id);
@@ -279,8 +320,8 @@ const getColumns = ({ setRowsData }) => {
             {SAVE_SVG}
           </button>
         </div>
-      )
-    }
+      ),
+    },
   ];
 };
 

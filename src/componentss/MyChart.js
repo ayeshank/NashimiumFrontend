@@ -1,13 +1,33 @@
 import React, { useEffect, useState } from "react";
 import { Line } from "react-chartjs-2";
+import moment from "moment";
 import "../stylesheets/Chart.css";
 import Loading from "./Loading.js";
+import {
+  CategoryScale,
+  Chart,
+  LinearScale,
+  PointElement,
+  LineElement,
+  Title,
+  Tooltip,
+  Legend,
+} from "chart.js";
 import axios from "axios";
 
 export default function MyChart() {
   const [Data, setData] = useState([]);
+  Chart.register(
+    CategoryScale,
+    LinearScale,
+    PointElement,
+    LineElement,
+    Title,
+    Tooltip,
+    Legend
+  );
   const data = {
-    labels: Data.map((o) => o.date),
+    labels: Data.map((o) => moment(o.date).format("MMM Do YY, h:mm:ss a")),
     datasets: [
       {
         label: "XNA/AUD",
@@ -22,10 +42,12 @@ export default function MyChart() {
   };
   useEffect(() => {
     async function fetchBooks() {
-      const response = await fetch("/audlogget");
+      const response = await fetch(
+        "https://nashimiumbackend.herokuapp.com/audlogget"
+      );
       const json = await response.json();
       setData(json.al);
-      console.log(json.al);
+      // console.log(json.al);
     }
     fetchBooks();
   }, []);

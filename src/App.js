@@ -1,6 +1,7 @@
 import "./App.css";
 import { useState, Suspense } from "react";
 import { BrowserRouter } from "react-router-dom";
+import "bootstrap/dist/css/bootstrap.min.css";
 import Header from "./componentss/Header";
 import RoutesNav from "./componentss/Routes";
 import LocaleContext from "./LocaleContext";
