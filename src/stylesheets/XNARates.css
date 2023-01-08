@@ -1,0 +1,60 @@
+.xnarates
+{
+    font-size: small;
+    text-align: left;
+    margin-left: 5%;
+    width: 26%;
+}
+.xnarateh6
+{
+    background-color: rgb(236, 89, 20);
+    padding: 2%;
+    color: white;
+    border-radius: 40px;
+    width: 95%;
+}
+.xnaratep
+{
+    font-size: 0.7rem;
+    background-color: rgb(12, 12, 12);
+    padding: 1%;
+    border-radius: 0px;
+    color: white;
+    width: 95%;
+}
+.xnaratediv2
+{
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    margin-left: 3%;
+    font-weight: bold;
+}
+.scroller
+{
+    width:400;
+    height: 400
+}
+@media screen and (max-width: 768px) 
+{
+    .xnarates
+{
+    margin-left: 15%;
+    width: 75%;
+}
+.xnarateh6
+{
+    width: 100%;
+    margin-top: 3%;
+}
+.xnaratep
+{
+    width: 100%;
+    font-size: x-small;
+}
+.xnaratediv2
+{
+    width: 100%;
+    margin-left: 0%;
+}
+}

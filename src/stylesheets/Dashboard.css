@@ -1,0 +1,54 @@
+.dashboard
+{
+  /* overflow-y: scroll; */
+  /* height: 655px; */
+  margin-top: 4%;
+  margin-left: 2%;
+ }
+ .DivForPC
+ {
+   margin-left: 70%;
+ }
+.dashboardin
+{
+  /* margin-top: 2%;
+  margin-left: 3%; */
+  display: flex;
+  flex-direction: row;
+}
+.sbar
+{
+  display: block;
+}
+@media screen and (max-width: 568px) 
+{
+    .dashboardin
+    {
+      margin-top: 13%;
+      /* overflow-y: scroll; */
+      /* height:600px; */
+      flex-direction: column;
+    }
+    
+ .DivForPC
+ {
+   margin-left: 7%;
+ }
+ .dashboard
+{
+  /* overflow-y: scroll; */
+  /* height: 627px; */
+  margin-top: 11%;
+  margin-left: 2%;
+ }
+    /* .sbar
+{
+  display: none;
+} */
+}
+
+/* @media (max-width: 800px) {
+  .flex-container {
+    flex-direction: column;
+  }
+} */
